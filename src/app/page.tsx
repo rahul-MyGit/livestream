@@ -1,15 +1,12 @@
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
-export default async function Page() {
 
 
+export default  function Page() {
   return (
     <div className="flex h-screen">
-      <div className=" flex flex-col m-auto">
-      Home Page
-      <Link href={'/home'}>
-        <Button>Click here</Button>
-      </Link>
+      <div className=" flex flex-col m-auto text-white">
+      <p className="text-white pl-1">Home Page</p>
+        <Link href={'/home'}>Click here</Link>
       </div>
     </div>
   );

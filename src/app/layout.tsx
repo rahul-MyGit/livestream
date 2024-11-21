@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { auth } from "@/lib/auth";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,12 +28,14 @@ export default async function RootLayout({
 }>) {
   const session = await auth()
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar  session = {session}/>
+        <ThemeProvider attribute="class" forcedTheme="dark" storageKey="streamify-theme" >
+        <Navbar  session = {session || null}/>
         {children}
+        </ThemeProvider>
       </body>
     </html>
   );
