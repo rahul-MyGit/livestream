@@ -1,8 +1,11 @@
+import Toggle from "./Toggle"
 import { Wrapper } from "./wrapper"
 
 const Sidebar = () => {
   return (
-    <Wrapper>Sidebar</Wrapper>
+    <Wrapper>
+      <Toggle /> 
+    </Wrapper>
   )
 }
 

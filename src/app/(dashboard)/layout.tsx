@@ -1,5 +1,5 @@
 import Sidebar from "@/components/sidebar/Sidebar";
-
+import Container from "@/components/Container"
 const DashboardLayout = ({
     children,
 }: {
@@ -9,7 +9,9 @@ const DashboardLayout = ({
         <>
             <div className="flex h-full">
                 <Sidebar />
+                <Container>
                 {children}
+                </Container>
             </div>
         </>
     )
