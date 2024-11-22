@@ -24,7 +24,7 @@ const Container = ({children}: ContainerProps) => {
     }, [matches, onCollapse, onExpand]);
 
   return (
-    <div className={cn("flex-1", collapsed ? "ml-[70px]" : "ml-[70px] lg:ml-60")}>{children}</div>
+    <div className={cn("flex-1 h-[calc(100vh-64px)]", collapsed ? "ml-[70px]" : "ml-[70px] lg:ml-60")}>{children}</div>
   )
 }
 

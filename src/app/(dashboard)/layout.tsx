@@ -7,7 +7,7 @@ const DashboardLayout = ({
 }) => {
     return (
         <>
-            <div className="flex h-full">
+            <div className="flex h-[calc(100vh-64px)]">
                 <Sidebar />
                 <Container>
                 {children}
