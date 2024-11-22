@@ -14,14 +14,16 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useRouter } from 'next/navigation'
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { githubSignInAction, userSignOutAction } from '@/app/actions/authActions'
 
 export default function Navbar({ session }: { session: any }) {
   const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter();
 
   const navItems = [
-    { name: 'Home', href: '/' },
+    { name: 'Home', href: '/home' },
     { name: 'Explore', href: '/explore' },
     { name: 'Pricing', href: '/pricing' },
   ]
@@ -79,6 +81,8 @@ export default function Navbar({ session }: { session: any }) {
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>Profile</DropdownMenuItem>
                   <DropdownMenuItem>Settings</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push(`/u/${session.user.name}`)}>Dasboard</DropdownMenuItem>
+
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={() => userSignOutAction()}>
                     Sign out

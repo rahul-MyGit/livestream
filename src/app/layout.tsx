@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { auth } from "@/lib/auth";
 import { ThemeProvider } from "@/components/theme-provider";
+import {Toaster} from 'sonner'
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,6 +34,7 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider attribute="class" forcedTheme="dark" storageKey="streamify-theme" >
+        <Toaster theme="light" position="bottom-center"/>
         <Navbar  session = {session || null}/>
         {children}
         </ThemeProvider>
