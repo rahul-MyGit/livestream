@@ -11,10 +11,37 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     signIn: '/signin'
   },
 
+  callbacks: {
+    async session({session, token}) {
+      if(session?.user){
+        session.user.id = token.sub || '';
+      }
+      return session
+    },
+
+    async jwt({token, user}) {
+      if(user){
+        token.sub = user.id;
+      }
+      return token;
+    }
+  },
+
   session: {
     strategy: 'jwt'
   }
 });
+
+declare module "next-auth" {
+  interface Session {
+    user: {
+      id?: string;
+      email?: string;
+      name?: string;
+      image?: string;
+    }
+  }
+}
 
 export const authMiddleware = auth((req) => {
     const isLoggedIn = !!req.auth;

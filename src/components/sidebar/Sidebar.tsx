@@ -7,6 +7,8 @@ import { Wrapper } from "./wrapper"
 const Sidebar = async () => {
 
   const session = await auth()
+  console.log(session?.user);
+  
 
   return (
     <Wrapper>
