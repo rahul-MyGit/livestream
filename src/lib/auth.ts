@@ -35,9 +35,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 declare module "next-auth" {
   interface Session {
     user: {
-      id?: string;
-      email?: string;
-      name?: string;
+      id: string;
+      email: string;
+      name: string;
       image?: string;
     }
   }

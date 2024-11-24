@@ -7,11 +7,7 @@ import { redirect } from 'next/navigation'
 const page = async () => {
   const session = await auth()
 
-  if(!session?.user){
-    redirect('/')
-  }
-
-  const userId = session?.user?.id;
+  const userId = session?.user.id;
   if(!userId){
     redirect('/')
   }
@@ -33,6 +29,11 @@ const page = async () => {
           field="isChatEnabled"
           label="Chat Enabled"
           value={stream?.data?.isChatEnabled ?? true} 
+        />
+        <ToggleCard 
+          field="isChatDelayed"
+          label="Chat Delayed"
+          value={stream?.data?.isChatDelayed ?? true} 
         />
       </div>
     </div>
