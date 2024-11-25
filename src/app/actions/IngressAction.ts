@@ -36,8 +36,6 @@ export const resetIngress = async (hostIdentity: string) => {
 
 
 export const createIngress = async (ingressType:IngressInput) => {
-
-    //TODO:reset prev Ingress
     
     const session = await auth();
     if(!session || !session.user){

@@ -7,7 +7,7 @@ import Link from "next/link"
 import { redirect } from "next/navigation"
 
 
-type SomethingProps =  {
+type SomethingProps = {
   data: string | null
 }
 
@@ -26,15 +26,20 @@ const Something = ({ data }: SomethingProps) => {
       {showLabel && (
         <div className="pl-6 mb-4">
           <p className="text-sm text-muted-foreground">
-            <Link href={`/board/excelidraw`}>
-            <Button className="m-7">
-              Excelidraw
-            </Button>
-            </Link>
             <Link href={`/u/${data}`}>
-            <Button className="m-7">
-              Dashboard
-            </Button>
+              <Button className="m-7">
+                Dashboard
+              </Button>
+            </Link>
+            <Link href={`/board/excelidraw`}>
+              <Button className="m-7">
+                Excelidraw
+              </Button>
+            </Link>
+            <Link href={`/u/home`}>
+              <Button className="m-7">
+                SlideShare
+              </Button>
             </Link>
           </p>
         </div>

@@ -1,6 +1,9 @@
 import React from 'react'
 
-const page = () => {
+const page = (props : string) => {
+
+  console.log(props);
+  
   return (
     <div className=''>HOMES page my boi</div>
   )
