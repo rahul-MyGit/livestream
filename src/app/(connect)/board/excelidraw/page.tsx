@@ -1,9 +1,7 @@
-import React from 'react'
+import Excalidraw from './_components/excalidraw';
 
-const Excelidraw = () => {
-  return (
-    <div>Excelidraw</div>
-  )
-}
+const HomePage = () => {
+    return <Excalidraw />;
+};
 
-export default Excelidraw
+export default HomePage;

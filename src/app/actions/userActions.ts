@@ -24,22 +24,29 @@ export const getSelf = async () => {
 
 export const getSelfByUsername = async (name: string) => {
 
-    const session = await auth();
+    console.log(name)
+    
 
-    if(!session || !session.user){
-        throw new Error("Unathorized")
+    if(!name) {
+        throw new Error("Usernames is requied" + name)
     }
 
     const user = await prisma.user.findUnique({
-        where: { email: session.user.email || ""}
+        where: { name} , include: {stream: true}
+    });
+
+    return user;
+}
+
+
+export const getUserById = async (id: string) => {
+
+    const user = await prisma.user.findUnique({
+        where: {id} , include: {stream: true}
     });
 
     if(!user){
         throw new Error("User not Loggedin");
-    }
-
-    if(user.name !== name){
-        throw new Error("unauthorized");
     }
 
     return user;

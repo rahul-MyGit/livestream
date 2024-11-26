@@ -46,13 +46,10 @@ declare module "next-auth" {
 export const authMiddleware = auth((req) => {
     const isLoggedIn = !!req.auth;
     const isHomePage = req.nextUrl.pathname === '/';
-    const isPublicFile = req.nextUrl.pathname.includes('.');
+    const isLivekitWebook = req.nextUrl.pathname === '/api/webooks(.*)'
+    const isPublicFile = req.nextUrl.pathname.includes('.'); 
   
-    if (isPublicFile) {
-      return NextResponse.next();
-    }
-  
-    if (isHomePage) {
+    if (isHomePage || isLivekitWebook || isPublicFile) {
       return NextResponse.next();
     }
   
