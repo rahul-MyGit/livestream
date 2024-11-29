@@ -18,7 +18,7 @@ export const userViewerToken = (hostIdetity: string) => {
 
                 const decodeToken = jwtDecode(viewToken) as JwtPayload & { name?: string}
                 const name = decodeToken?.name
-                const identity = decodeToken.jti   //change to iss to view stream
+                const identity = decodeToken.iss   //change to iss to view stream else jti
                 console.log(decodeToken)
                 
 
